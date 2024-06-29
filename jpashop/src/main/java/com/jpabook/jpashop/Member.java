@@ -11,6 +11,7 @@ import lombok.Setter;
 @Setter
 public class Member {
 
+    // test
     @Id
     @GeneratedValue
     private Long id;
