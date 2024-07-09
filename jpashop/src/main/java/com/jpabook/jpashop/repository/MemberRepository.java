@@ -1,21 +1,24 @@
-package com.jpabook.jpashop;
+package com.jpabook.jpashop.repository;
 
+import com.jpabook.jpashop.domain.Member;
 import jakarta.persistence.EntityManager;
-
 import jakarta.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
 
 @Repository
 public class MemberRepository {
+
     @PersistenceContext
     private EntityManager em;
 
-    public Long save(Member member) {
+    public void save(Member member) {
         em.persist(member);
-        return member.getId();
     }
 
-    public Member find(Long id) {
-        return em.find(Member.class, id);
+    public Member findOne(Long id) {
+        Member member = em.find(Member.class, id);
+        return member;
     }
+
+
 }
